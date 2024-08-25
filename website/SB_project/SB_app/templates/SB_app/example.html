@@ -1,0 +1,12 @@
+<h1>template is being used</h1>
+
+
+<div id="homepage_form">
+    {% if form %}
+      <form action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add site">
+      </form>
+    {% endif %}
+  </div>
