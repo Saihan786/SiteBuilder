@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.urls import reverse
 from django.core.exceptions import ValidationError
 from .models import Site
 from .forms import SiteForm
@@ -41,3 +42,52 @@ class SiteFormTests(TestCase):
         form_data = {'name': 'test_example', 'area': -5}
         form = SiteForm(data=form_data)
         self.assertFalse(form.is_valid())
+
+
+
+class HomepageViewTests(TestCase):
+    def test_GET(self):
+        """Fails if a GET request has a status code that isn't 200."""
+        response = self.client.get( reverse('homepage') )
+        self.assertEqual(response.status_code, 200)
+
+        
+    def test_POST(self):
+        """Fails if a POST request has a status code that isn't 200."""
+        response = self.client.post( reverse('homepage') )
+        self.assertEqual(response.status_code, 200)
+    
+    
+    def test_empty_form(self):
+        """Fails if an empty form is NOT shown for a GET request."""
+
+        response = self.client.get( reverse('homepage') )
+        self.assertContains(response, "Name:")
+        self.assertContains(response, "Area:")
+        self.assertContains(response, "Add site")
+    
+    
+    def test_valid_form(self):
+        """Fails if the correct text isn't shown when a valid form is
+        submitted."""
+
+        form_data = {'name': 'test_example', 'area': 15}
+        response = self.client.post( reverse('homepage'), data=form_data)
+
+        self.assertContains(response, "Name:")
+        self.assertContains(response, "Area:")
+        self.assertContains(response, "Add site")
+        self.assertContains(response, "You've submitted a form!")
+    
+    
+    def test_invalid_form(self):
+        """Fails if the correct text isn't shown when an invalid form is
+        submitted."""
+
+        form_data = {'name': 'test_example', 'area': -5}
+        response = self.client.post( reverse('homepage'), data=form_data)
+
+        self.assertContains(response, "Name:")
+        self.assertContains(response, "Area:")
+        self.assertContains(response, "Add site")
+        self.assertContains(response, "You've submitted the form wrong!")

@@ -10,20 +10,27 @@ def index(request):
 
 
 def homepage(request):
+    homepage_template_url = "SB_app/example.html"
+    
     if request.method == "POST":
         form = SiteForm(request.POST)
-        context = {'form': form}
-        
         if form.is_valid():
-            print(form)
-            return render(request, "SB_app/example.html", context)
+            context = {
+                'form': form,
+                'valid_form': True,
+            }
+            return render(request, homepage_template_url, context)
         else:
-            return HttpResponse("error with invalid form")
+            context = {
+                'form': form,
+                'invalid_form': True,
+            }
+            return render(request, homepage_template_url, context)
 
     elif request.method == "GET":
         form = SiteForm()
         context = {'form': form}
 
-        return render(request, "SB_app/example.html", context)
+        return render(request, homepage_template_url, context)
 
-    return render(request, template_name="SB_app/example.html", context=None)
+    return render(request, template_name=homepage_template_url, context=None)
