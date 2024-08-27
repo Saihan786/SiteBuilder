@@ -29,8 +29,8 @@ class SiteModelTests(TestCase):
     def test_name_is_unique(self):
         """Fails if two sites with the same names can be saved."""
 
-        site = Site(name="test_example", area=-5)
-        site2 = Site(name="test_example", area=-5)
+        site = Site(name="test_example", area=15)
+        site2 = Site(name="test_example", area=15)
         with self.assertRaises(expected_exception=ValidationError):
             site.save()
             site2.save()
@@ -82,7 +82,7 @@ class HomepageViewTests(TestCase):
         submitted."""
 
         form_data = {'name': 'test_example', 'area': 15}
-        response = self.client.post( reverse('homepage'), data=form_data)
+        response = self.client.post( reverse('homepage'), data=form_data )
 
         self.assertContains(response, "Name:")
         self.assertContains(response, "Area:")
@@ -95,9 +95,25 @@ class HomepageViewTests(TestCase):
         submitted."""
 
         form_data = {'name': 'test_example', 'area': -5}
-        response = self.client.post( reverse('homepage'), data=form_data)
+        response = self.client.post( reverse('homepage'), data=form_data )
 
         self.assertContains(response, "Name:")
         self.assertContains(response, "Area:")
         self.assertContains(response, "Add site")
         self.assertContains(response, "You've submitted the form wrong!")
+    
+    
+    def test_matching_name(self):
+        """Fails if the correct text isn't shown when the name in a form
+        matches the name of an already-existing site."""
+        
+        site = Site(name="test_example", area=15)
+        site.save()
+
+        form_data = {'name': 'test_example', 'area': 15}
+        response = self.client.post( reverse('homepage'), data=form_data )
+
+        self.assertContains(response, "Name:")
+        self.assertContains(response, "Area:")
+        self.assertContains(response, "Add site")
+        self.assertContains(response, "A site with that name already exists.")

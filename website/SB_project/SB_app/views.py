@@ -11,25 +11,33 @@ def index(request):
 
 def homepage(request):
     homepage_template_url = "SB_app/example.html"
+    site_objects = Site.objects.all()
+    context = {'site_objects': site_objects}
     
     if request.method == "POST":
         form = SiteForm(request.POST)
+        context['form'] = form
+
         if form.is_valid():
-            context = {
-                'form': form,
-                'valid_form': True,
-            }
+            name = form.cleaned_data.get('name')
+            area = form.cleaned_data.get('area')
+
+            try:
+                Site(name=name, area=area).save()
+                context['valid_form'] = True
+            except Exception as e:
+                unique_name_error = 'Site with this Name already exists.'
+                if unique_name_error in e.messages:
+                    context['name_violation'] = True
+            
             return render(request, homepage_template_url, context)
         else:
-            context = {
-                'form': form,
-                'invalid_form': True,
-            }
+            context['invalid_form'] = True
             return render(request, homepage_template_url, context)
 
     elif request.method == "GET":
         form = SiteForm()
-        context = {'form': form}
+        context['form'] = form
 
         return render(request, homepage_template_url, context)
 

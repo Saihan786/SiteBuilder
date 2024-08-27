@@ -15,8 +15,21 @@
   <div id="valid_form_text">
     {% if valid_form %}
       <h2>You've submitted a form!</h2>
+    {% elif name_violation %}
+      <h2>A site with that name already exists.</h2>
     {% elif invalid_form %}
       <h2>You've submitted the form wrong!</h2>
+    {% endif %}
+  </div>
+  
+  <div id="all_site_objects">
+    {% if site_objects %}
+      {% for s in site_objects %}
+      <tr>
+        <td>{{s.name}}</td>
+        <td>{{s.area}}</td>
+      </tr>
+      {% endfor %}
     {% endif %}
   </div>
   
