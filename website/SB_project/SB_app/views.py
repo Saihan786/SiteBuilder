@@ -4,13 +4,17 @@ from django.shortcuts import HttpResponse
 from .models import Site
 from .forms import SiteForm
 
+homepage_template_url = "SB_app/homepage.html"
+settings_template_url = "SB_app/settings.html"
+htl_template_url = "SB_app/housetype_library.html"
+
+
 # Create your views here.
 def index(request):
     return HttpResponse("lol")
 
 
 def homepage(request):
-    homepage_template_url = "SB_app/example.html"
     site_objects = Site.objects.all()
     context = {'site_objects': site_objects}
     
@@ -42,3 +46,11 @@ def homepage(request):
         return render(request, homepage_template_url, context)
 
     return render(request, template_name=homepage_template_url, context=None)
+
+
+def settings(request):
+    return render(request, template_name=settings_template_url, context=None)
+
+
+def htl(request):
+    return render(request, template_name=htl_template_url, context=None)
