@@ -1,7 +1,8 @@
 <h1>template is being used</h1>
 
+<div>
 
-<div id="homepage_form">
+  <div id="homepage_form">
     {% if form %}
       <form action="" method="post" enctype="multipart/form-data" >
         {% csrf_token %}
@@ -10,3 +11,13 @@
       </form>
     {% endif %}
   </div>
+  
+  <div id="valid_form_text">
+    {% if valid_form %}
+      <h2>You've submitted a form!</h2>
+    {% elif invalid_form %}
+      <h2>You've submitted the form wrong!</h2>
+    {% endif %}
+  </div>
+  
+</div>
