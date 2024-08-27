@@ -4,7 +4,7 @@ from decimal import Decimal
 
 
 class Site(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
     area = models.DecimalField(
         max_digits=10,
         decimal_places=4,

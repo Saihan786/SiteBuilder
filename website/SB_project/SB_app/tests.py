@@ -24,6 +24,16 @@ class SiteModelTests(TestCase):
         site = Site(name="test_example", area=-5)
         with self.assertRaises(expected_exception=ValidationError):
             site.save()
+    
+    
+    def test_name_is_unique(self):
+        """Fails if two sites with the same names can be saved."""
+
+        site = Site(name="test_example", area=-5)
+        site2 = Site(name="test_example", area=-5)
+        with self.assertRaises(expected_exception=ValidationError):
+            site.save()
+            site2.save()
 
 
 
