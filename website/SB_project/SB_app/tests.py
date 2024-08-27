@@ -117,3 +117,11 @@ class HomepageViewTests(TestCase):
         self.assertContains(response, "Area:")
         self.assertContains(response, "Add site")
         self.assertContains(response, "A site with that name already exists.")
+    
+    
+    def test_urls(self):
+        """Fails if the urls' text aren't shown."""
+        
+        response = self.client.get( reverse('homepage') )
+        self.assertContains(response, "Settings")
+        self.assertContains(response, "Housetype Library Page")
