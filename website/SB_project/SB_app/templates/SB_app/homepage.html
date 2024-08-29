@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'SB_app/style.css' %}">
   </head>
   <body>
-    
     <div class="container-fluid">
       
       <div class="row" id="wrapper">
@@ -18,16 +17,15 @@
         </div>
 
         <div class="col-3">
-          <div class="row_20 wrapper_border url_column">
-            <div class="page_link" id="settings_page">
-              <a href="{% url 'settings' %}" class="btn btn-primary togglebuttons" role="button"">Settings</a>
+          <div class="row_20 wrapper_border">
+            <div class="padded_button">
+              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
             </div>
-            <div id="housetype_library_page">
-              <a href="{% url 'htl' %}" class="btn btn-primary togglebuttons" role="button">Housetype Library Page</a>
+            <div class="padded_button">
+              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
             </div>
           </div>
           <div class="row_80 wrapper_border" id="homepage_form_content">
-
             <div id="homepage_form">
               {% if form %}
                 <form action="" method="post" enctype="multipart/form-data" >
@@ -48,26 +46,8 @@
                 <h2>Nothing has been submitted.</h2>
               {% endif %}
             </div>
-
           </div>
         </div>
       </div>
-      
-
-
-
-
-
-
-
-
-      <!-- <h1>My Sites</h1>
-
-      <div>
-
-        
-      </div>
-    </div> -->
-    
   </body>
 </html>

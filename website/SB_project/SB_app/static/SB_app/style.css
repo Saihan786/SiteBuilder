@@ -34,6 +34,14 @@ body {
   height: 80%;
 }
 
+.padded_button {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.page_link {
+  width: 100%;
+}
+
 .url_column, #homepage_form_content{
   display: grid;
   place-items: center;
