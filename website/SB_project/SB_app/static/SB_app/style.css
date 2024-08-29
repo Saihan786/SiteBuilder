@@ -18,7 +18,7 @@ body {
 }
 .wrapper_border {
   border-width: thick;
-  border-style: inset;
+  border-style: solid;
   border-color: darkgrey;
 }
 .row {
@@ -27,10 +27,17 @@ body {
 .row_half {
   height: 50%;
 }
-#site_form {
-  align-items: center;
+.row_20 {
+  height: 20%;
+}
+.row_80 {
+  height: 80%;
 }
 
+.url_column, #homepage_form_content{
+  display: grid;
+  place-items: center;
+}
 
 /* #urls {
     padding-top: 2%;

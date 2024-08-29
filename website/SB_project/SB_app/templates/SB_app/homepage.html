@@ -18,16 +18,16 @@
         </div>
 
         <div class="col-3">
-          <div class="row_half wrapper_border">
+          <div class="row_20 wrapper_border url_column">
             <div class="page_link" id="settings_page">
               <a href="{% url 'settings' %}" class="btn btn-primary togglebuttons" role="button"">Settings</a>
             </div>
             <div id="housetype_library_page">
               <a href="{% url 'htl' %}" class="btn btn-primary togglebuttons" role="button">Housetype Library Page</a>
             </div>
-
           </div>
-          <div class="row_half wrapper_border">
+          <div class="row_80 wrapper_border" id="homepage_form_content">
+
             <div id="homepage_form">
               {% if form %}
                 <form action="" method="post" enctype="multipart/form-data" >
@@ -37,7 +37,6 @@
                 </form>
               {% endif %}
             </div>
-            
             <div id="valid_form_text">
               {% if valid_form %}
                 <h2>You've submitted a form!</h2>
@@ -45,8 +44,11 @@
                 <h2>A site with that name already exists.</h2>
               {% elif invalid_form %}
                 <h2>You've submitted the form wrong!</h2>
+              {% else %}
+                <h2>Nothing has been submitted.</h2>
               {% endif %}
-            </div>    
+            </div>
+
           </div>
         </div>
       </div>
