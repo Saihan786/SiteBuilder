@@ -11,7 +11,7 @@ htl_template_url = "SB_app/housetype_library.html"
 
 # Create your views here.
 def index(request):
-    return HttpResponse("lol")
+    return render(request, "SB_app/index.html", context=None)
 
 
 def homepage(request):

@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  background-color: lightgrey;
+  text-align: center;
+  height: 100%;
+  
+  border-width: thick;
+  border-style: inset;
+  border-color: darkgrey;
+  
+}
+
+
+/* #urls {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#site_form {
+    padding-top: 2%;
+    padding-bottom: 2%;
+} */
+
+.url {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#homepage_header {
+    border-width: thick;
+    border-style: inset;
+    border-color: darkgrey;
+}
+
+
+

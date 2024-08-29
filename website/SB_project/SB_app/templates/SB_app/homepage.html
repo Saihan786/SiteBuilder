@@ -1,45 +1,64 @@
-<h1>template is being used</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SiteBuilder Homepage</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'SB_app/style.css' %}">
+  </head>
+  <body>
+    
+    <div class="container-fluid">
+      
+      
+      
+      <h1>My Sites</h1>
 
-<div>
+      <div>
+        <div id="homepage_form">
+          {% if form %}
+            <form action="" method="post" enctype="multipart/form-data" >
+              {% csrf_token %}
+              {{ form }}
+              <input type="submit" value="Add site">
+            </form>
+          {% endif %}
+        </div>
+        
+        <div id="valid_form_text">
+          {% if valid_form %}
+            <h2>You've submitted a form!</h2>
+          {% elif name_violation %}
+            <h2>A site with that name already exists.</h2>
+          {% elif invalid_form %}
+            <h2>You've submitted the form wrong!</h2>
+          {% endif %}
+        </div>
+        
+        <div id="all_site_objects">
+          {% if site_objects %}
+            {% for s in site_objects %}
+            <tr>
+              <td>{{s.name}}</td>
+              <td>{{s.area}}</td>
+            </tr>
+            {% endfor %}
+          {% endif %}
+        </div>
 
-  <div id="homepage_form">
-    {% if form %}
-      <form action="" method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Add site">
-      </form>
-    {% endif %}
-  </div>
-  
-  <div id="valid_form_text">
-    {% if valid_form %}
-      <h2>You've submitted a form!</h2>
-    {% elif name_violation %}
-      <h2>A site with that name already exists.</h2>
-    {% elif invalid_form %}
-      <h2>You've submitted the form wrong!</h2>
-    {% endif %}
-  </div>
-  
-  <div id="all_site_objects">
-    {% if site_objects %}
-      {% for s in site_objects %}
-      <tr>
-        <td>{{s.name}}</td>
-        <td>{{s.area}}</td>
-      </tr>
-      {% endfor %}
-    {% endif %}
-  </div>
-
-  <div id="redirect">
-    <div id="settings_page">
-      <a href="{% url 'settings' %}">Settings</a>
+        <div id="redirect">
+          <div id="settings_page">
+            <a href="{% url 'settings' %}">Settings</a>
+          </div>
+          <div id="housetype_library_page">
+            <a href="{% url 'htl' %}">Housetype Library Page</a>
+          </div>
+        </div>
+        
+      </div>
     </div>
-    <div id="housetype_library_page">
-      <a href="{% url 'htl' %}">Housetype Library Page</a>
-    </div>
-  </div>
-  
-</div>
+    
+  </body>
+</html>
