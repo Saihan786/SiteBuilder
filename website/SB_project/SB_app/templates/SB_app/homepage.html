@@ -12,53 +12,60 @@
     
     <div class="container-fluid">
       
+      <div class="row" id="wrapper">
+        <div class="col-9 wrapper_border">
+          hello
+        </div>
+
+        <div class="col-3">
+          <div class="row_half wrapper_border">
+            <div class="page_link" id="settings_page">
+              <a href="{% url 'settings' %}" class="btn btn-primary togglebuttons" role="button"">Settings</a>
+            </div>
+            <div id="housetype_library_page">
+              <a href="{% url 'htl' %}" class="btn btn-primary togglebuttons" role="button">Housetype Library Page</a>
+            </div>
+
+          </div>
+          <div class="row_half wrapper_border">
+            <div id="homepage_form">
+              {% if form %}
+                <form action="" method="post" enctype="multipart/form-data" >
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <input type="submit" value="Add site">
+                </form>
+              {% endif %}
+            </div>
+            
+            <div id="valid_form_text">
+              {% if valid_form %}
+                <h2>You've submitted a form!</h2>
+              {% elif name_violation %}
+                <h2>A site with that name already exists.</h2>
+              {% elif invalid_form %}
+                <h2>You've submitted the form wrong!</h2>
+              {% endif %}
+            </div>    
+          </div>
+        </div>
+      </div>
       
-      
-      <h1>My Sites</h1>
+
+
+
+
+
+
+
+
+      <!-- <h1>My Sites</h1>
 
       <div>
-        <div id="homepage_form">
-          {% if form %}
-            <form action="" method="post" enctype="multipart/form-data" >
-              {% csrf_token %}
-              {{ form }}
-              <input type="submit" value="Add site">
-            </form>
-          {% endif %}
-        </div>
-        
-        <div id="valid_form_text">
-          {% if valid_form %}
-            <h2>You've submitted a form!</h2>
-          {% elif name_violation %}
-            <h2>A site with that name already exists.</h2>
-          {% elif invalid_form %}
-            <h2>You've submitted the form wrong!</h2>
-          {% endif %}
-        </div>
-        
-        <div id="all_site_objects">
-          {% if site_objects %}
-            {% for s in site_objects %}
-            <tr>
-              <td>{{s.name}}</td>
-              <td>{{s.area}}</td>
-            </tr>
-            {% endfor %}
-          {% endif %}
-        </div>
 
-        <div id="redirect">
-          <div id="settings_page">
-            <a href="{% url 'settings' %}">Settings</a>
-          </div>
-          <div id="housetype_library_page">
-            <a href="{% url 'htl' %}">Housetype Library Page</a>
-          </div>
-        </div>
         
       </div>
-    </div>
+    </div> -->
     
   </body>
 </html>

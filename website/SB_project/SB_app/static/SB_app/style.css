@@ -13,6 +13,23 @@ body {
   border-color: darkgrey;
   
 }
+#wrapper {
+  height: 100%;
+}
+.wrapper_border {
+  border-width: thick;
+  border-style: inset;
+  border-color: darkgrey;
+}
+.row {
+  height: auto;
+}
+.row_half {
+  height: 50%;
+}
+#site_form {
+  align-items: center;
+}
 
 
 /* #urls {
