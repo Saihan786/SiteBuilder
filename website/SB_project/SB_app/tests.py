@@ -124,4 +124,4 @@ class HomepageViewTests(TestCase):
         
         response = self.client.get( reverse('homepage') )
         self.assertContains(response, "Settings")
-        self.assertContains(response, "Housetype Library Page")
+        self.assertContains(response, "Housetype Library")

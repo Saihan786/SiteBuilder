@@ -13,11 +13,32 @@
       
       <div class="row" id="wrapper">
         <div class="col-9 wrapper_border">
-          hello
+          <div class="vsize_10">
+            <div class="vsize_5"></div>
+            <div class="vsize_90">
+              <div class="solid_border">
+                <h3 class="page_header">My Sites</h3>
+              </div>
+            </div>
+            <div class="vsize_5"></div>
+          </div>
+          <div class="vsize_10">
+            <div class="row toggle_views">
+              <button type="button" class="col btn btn-primary toggle_view_button">List</button>
+              <button type="button" class="col btn btn-primary toggle_view_button">Map</button>
+              <button type="button" class="col btn btn-primary toggle_view_button">Forecast</button>
+            </div>
+          </div>
+          <div class="vsize_10">
+            <form class="search_form vsize_100">
+              <input class="search_box form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+          <div class="vsize_70"></div>
         </div>
 
         <div class="col-3">
-          <div class="row_20 wrapper_border">
+          <div class="vsize_20 wrapper_border">
             <div class="padded_button">
               <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
             </div>
@@ -25,7 +46,7 @@
               <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
             </div>
           </div>
-          <div class="row_80 wrapper_border" id="homepage_form_content">
+          <div class="vsize_80 wrapper_border" id="homepage_form_content">
             <div id="homepage_form">
               {% if form %}
                 <form action="" method="post" enctype="multipart/form-data" >
