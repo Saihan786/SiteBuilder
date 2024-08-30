@@ -37,7 +37,55 @@
           </div>
 
           <div class="vsize_70">
-
+            <div id="all_site_objects">
+              {% if site_objects %}
+              
+              <table>
+                <tr>
+                  {% for s in site_objects %}
+                    {% if 0 < forloop.counter and forloop.counter < 4 %}
+                      <td>
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h5 class="card-title">{{s.name}}</h5>
+                            <p class="card-text">{{s.area}}</p>
+                          </div>
+                        </div>
+                      </td>
+                    {%endif%}
+                  {%endfor%}
+                </tr>
+                <tr>
+                  {% for s in site_objects %}
+                    {% if 3 < forloop.counter and forloop.counter < 7 %}
+                      <td>
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h5 class="card-title">{{s.name}}</h5>
+                            <p class="card-text">{{s.area}}</p>
+                          </div>
+                        </div>
+                      </td>
+                    {%endif%}
+                  {%endfor%}
+                </tr>
+                <tr>
+                  {% for s in site_objects %}
+                    {% if 6 < forloop.counter and forloop.counter < 10 %}
+                      <td>
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h5 class="card-title">{{s.name}}</h5>
+                            <p class="card-text">{{s.area}}</p>
+                          </div>
+                        </div>
+                      </td>
+                    {%endif%}
+                  {%endfor%}
+                </tr>
+              </table>
+              {% endif %}	
+            </div>
           </div>
         </div>
         
