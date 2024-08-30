@@ -10,9 +10,8 @@
   </head>
   <body>
     <div class="container-fluid">
-      
-      <div class="row" id="wrapper">
-        <div class="col-9 wrapper_border">
+      <div class="row vsize_100">
+        <div class="col-9" id="homepage_contents">
           <div class="vsize_10">
             <div class="vsize_5"></div>
             <div class="vsize_90">
@@ -22,6 +21,7 @@
             </div>
             <div class="vsize_5"></div>
           </div>
+
           <div class="vsize_10">
             <div class="row toggle_views">
               <button type="button" class="col btn btn-primary toggle_view_button">List</button>
@@ -29,16 +29,22 @@
               <button type="button" class="col btn btn-primary toggle_view_button">Forecast</button>
             </div>
           </div>
+
           <div class="vsize_10">
             <form class="search_form vsize_100">
               <input class="search_box form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             </form>
           </div>
-          <div class="vsize_70"></div>
+
+          <div class="vsize_70">
+
+          </div>
         </div>
+        
+      
 
         <div class="col-3">
-          <div class="vsize_20 wrapper_border">
+          <div class="vsize_20 separating_left_line separating_bottom_line separating_right_line">
             <div class="padded_button">
               <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
             </div>
@@ -46,7 +52,7 @@
               <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
             </div>
           </div>
-          <div class="vsize_80 wrapper_border" id="homepage_form_content">
+          <div class="vsize_80 separating_left_line separating_right_line" id="homepage_form_content">
             <div id="homepage_form">
               {% if form %}
                 <form action="" method="post" enctype="multipart/form-data" >
@@ -69,6 +75,6 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
   </body>
 </html>

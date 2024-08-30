@@ -13,6 +13,26 @@ body {
   border-color: darkgrey;
   
 }
+.separating_right_line {
+  border-right-width: thick;
+  border-right-style: solid;
+  border-right-color: darkgrey;
+}
+.separating_left_line {
+  border-left-width: thick;
+  border-left-style: solid;
+  border-left-color: darkgrey;
+}
+.separating_bottom_line {
+  border-bottom-width: thick;
+  border-bottom-style: solid;
+  border-bottom-color: darkgrey;
+}
+.separating_top_line {
+  border-top-width: thick;
+  border-top-style: solid;
+  border-top-color: darkgrey;
+}
 #wrapper {
   height: 100%;
 }
@@ -65,6 +85,9 @@ body {
 #homepage_form {
   text-align: right;
 }
+#homepage_contents{
+  padding-left: 3%;
+}
 
 .url {
     padding-top: 5%;
@@ -80,10 +103,14 @@ body {
 
 .page_header {
   font-family: system-ui;
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: left;
   height: 100%;
-  padding-right: 60%;
+  /* padding-right: 80%; */
+  padding-left: 5%;
 }
 .search_form {
   padding-top: 2%;
