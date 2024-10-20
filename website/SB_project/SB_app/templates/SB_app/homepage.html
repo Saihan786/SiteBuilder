@@ -7,6 +7,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'SB_app/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -45,12 +46,28 @@
                   {% for s in site_objects %}
                     {% if 0 < forloop.counter and forloop.counter < 4 %}
                       <td>
-                        <div class="card" style="width: 18rem;">
+                        
+                        <div class="card">
+                          <div class="row card-header">
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col">
+                              <!-- <img src="{% static 'SB_app/monke.jpg' %}" class="card-img" alt="..."> -->
+                              <button class="btn" id="di"><i class="fa fa-trash"></i></button>
+                            </div>
+                          </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{s.name}}</h5>
-                            <p class="card-text">{{s.area}}</p>
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
                           </div>
                         </div>
+
+
+
+
+
+
                       </td>
                     {%endif%}
                   {%endfor%}
