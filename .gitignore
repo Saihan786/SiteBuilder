@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+website/SB_project/SB_project/__pycache__/__init__.cpython-312.pyc
+website/SB_project/SB_project/__pycache__/settings.cpython-312.pyc
+website/SB_project/SB_project/__pycache__/urls.cpython-312.pyc
+website/SB_project/SB_project/__pycache__/wsgi.cpython-312.pyc
+website/SB_project/db.sqlite3

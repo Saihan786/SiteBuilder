@@ -1,0 +1,150 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  background-color: lightgrey;
+  text-align: center;
+  height: 100%;
+  
+  border-width: thick;
+  border-style: inset;
+  border-color: darkgrey;
+  
+}
+.separating_right_line {
+  border-right-width: thick;
+  border-right-style: solid;
+  border-right-color: darkgrey;
+}
+.separating_left_line {
+  border-left-width: thick;
+  border-left-style: solid;
+  border-left-color: darkgrey;
+}
+.separating_bottom_line {
+  border-bottom-width: thick;
+  border-bottom-style: solid;
+  border-bottom-color: darkgrey;
+}
+.separating_top_line {
+  border-top-width: thick;
+  border-top-style: solid;
+  border-top-color: darkgrey;
+}
+#wrapper {
+  height: 100%;
+}
+.wrapper_border {
+  border-width: thick;
+  border-style: solid;
+  border-color: darkgrey;
+}
+.row {
+  height: auto;
+}
+.vsize_5 {
+  height: 5%;
+}
+.vsize_10 {
+  height: 10%;
+}
+.vsize_70 {
+  height: 70%;
+}
+.vsize_50 {
+  height: 50%;
+}
+.vsize_20 {
+  height: 20%;
+}
+.vsize_80 {
+  height: 80%;
+}
+.vsize_90 {
+  height: 90%;
+}
+.vsize_100 {
+  height: 100%;
+}
+
+.padded_button {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.page_link {
+  width: 100%;
+}
+
+.url_column, #homepage_form_content{
+  display: grid;
+  place-items: center;
+}
+
+#homepage_form {
+  text-align: right;
+}
+#homepage_contents{
+  padding-left: 3%;
+}
+
+.url {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.solid_border {
+  border-width: thick;
+  border-style: solid;
+  border-color: darkgrey;
+  height: 100%;
+}
+
+.page_header {
+  font-family: system-ui;
+  /* display: grid;
+  place-items: center; */
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: left;
+  height: 100%;
+  /* padding-right: 80%; */
+  padding-left: 5%;
+}
+.search_form {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 50%;
+  
+}
+.search_box {
+  border-width: thick;
+  border-style: solid;
+  border-color: darkgrey;
+  text-align: left;
+}
+.toggle_views {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 100%;
+}
+.toggle_view_button {
+  background-color: white;
+  color: black;
+  border-width: thin;
+  border-style: solid;
+  border-color: darkgrey;
+}
+
+
+
+
+#di {
+  background-color: red;
+}
+.btn {
+  background-color: lightblue;
+}
