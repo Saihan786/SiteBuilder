@@ -1,0 +1,8 @@
+Tasks in order of priority
+    Find all dependencies and pip install them and add to requirements.txt (doesn't it do this automatically?)
+
+    Fix overall page structure layout to be more consistent and closer to the general standard
+    Fix grid layout (card bootstrap page for the grid organisation section to structure it better) (turn into reusable block after) and add tests
+    Add descriptors for all tests (current comments don't show up in terminal when tests are run)
+    Fix search button and add tests
+    Fix delete button and add tests
