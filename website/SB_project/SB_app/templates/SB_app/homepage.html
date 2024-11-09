@@ -46,18 +46,17 @@
                   {% for s in site_objects %}
                     {% if 0 < forloop.counter and forloop.counter < 4 %}
                       <td>
-                        
                         <div class="card">
-                          <div class="row card-header">
-                            <div class="col"></div>
-                            <div class="col"></div>
-                            <div class="col">
-                              <!-- <img src="{% static 'SB_app/monke.jpg' %}" class="card-img" alt="..."> -->
-                              <button class="btn" id="di"><i class="fa fa-trash"></i></button>
-                            </div>
-                          </div>
                           <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
+                            <div class="row">
+                              <div class="col"></div>
+                              <div class="col"><h5 class="card-title">Special title treatment</h5></div>
+                              <div class="col"><div class="row">
+                                <div class="col"></div>
+                                <div class="col"></div>
+                                <div class="col"><button class="btn" id="di"><i class="fa fa-trash"></i></button></div>
+                              </div></div>
+                            </div>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                           </div>
@@ -111,10 +110,10 @@
         <div class="col-3">
           <div class="vsize_20 separating_left_line separating_bottom_line separating_right_line">
             <div class="padded_button">
-              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
+              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
             </div>
             <div class="padded_button">
-              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
+              <a class="page_link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
             </div>
           </div>
           <div class="vsize_80 separating_left_line separating_right_line" id="homepage_form_content">
