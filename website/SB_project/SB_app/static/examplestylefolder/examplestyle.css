@@ -1,0 +1,49 @@
+body, html, .row {
+    height: 100%;
+    text-align: center;
+}
+
+.whole-page {
+    background-color: rgb(235, 249, 254);
+    height: 100%;
+}
+.page-left-side {
+    height: 100%;
+}
+.page-right-side {
+    height: 100%;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.right-side-subsection {
+    height: 20%;
+    background-color: rgb(248, 245, 245);
+}
+.page-link {
+    background-color: lightblue;
+    color: white;
+}
+.form {
+    border: 1px solid black;
+}
+.form-submission-text {
+    border: 1px solid black;
+}
+
+
+
+
+
+.child-50 {
+    height: 50%;
+}
+.child-75 {
+    height: 75%;
+}
+.child-33 {
+    height: 33%;
+}
+.child-25 {
+    height: 25%;
+}

@@ -4,7 +4,7 @@ from django.shortcuts import HttpResponse
 from .models import Site
 from .forms import SiteForm
 
-homepage_template_url = "SB_app/homepage.html"
+homepage_template_url = "SB_app/example.html"
 settings_template_url = "SB_app/settings.html"
 htl_template_url = "SB_app/housetype_library.html"
 
@@ -12,6 +12,9 @@ htl_template_url = "SB_app/housetype_library.html"
 # Create your views here.
 def index(request):
     return render(request, "SB_app/index.html", context=None)
+
+def example(request):
+    return render(request, "SB_app/example.html", context=None)
 
 
 def homepage(request):
