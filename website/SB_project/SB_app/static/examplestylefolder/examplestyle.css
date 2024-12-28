@@ -9,26 +9,38 @@ body, html, .row {
 }
 .page-left-side {
     height: 100%;
+
 }
-.page-right-side {
-    height: 100%;
-    padding: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-.right-side-subsection {
-    height: 20%;
+.left-side-subsection {
     background-color: rgb(248, 245, 245);
 }
-.page-link {
+.header-section {
+    background-color: rgb(248, 245, 245);
+}
+.search-bar {
+}
+
+.page-right-side {
+    height: 100%;
+}
+.right-side-subsection {
+    background-color: rgb(248, 245, 245);
+}
+.button-color {
     background-color: lightblue;
     color: white;
 }
+.toggle-view-button-section {
+    align-items: center;
+}
+.toggle-view-button {
+    width: 33%;
+}
+.page-link {
+}
 .form {
-    border: 1px solid black;
 }
 .form-submission-text {
-    border: 1px solid black;
 }
 
 

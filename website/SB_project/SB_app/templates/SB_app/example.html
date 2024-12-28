@@ -1,71 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>SiteBuilder Homepage</title>
-    {% load bootstrap5 %}
-    {% load static %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'examplestylefolder/examplestyle.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+{% extends "blocks/base.html" %}
+{% load static %}
+{% block title %} <title>Homepage</title> {% endblock %}
+{% block page_header %} <h2>My Sites</h2> {% endblock %}
+
+{% block left_side_content %}
+<div>
+  <div class="row">
+    <button type="button" class="col btn btn-primary toggle-view-button">List</button>
+    <button type="button" class="col btn btn-primary toggle-view-button">Map</button>
+  </div>
+</div>
+
+<form>
+  <input class="search_box form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+</form>
 
 
-  <body>
 
-    <div class="container-fluid whole-page">
-      <div class="row">
-        <div class="col-9 page-left-side"></div>
-        <div class="col-3 page-right-side">
-          <div class="row gy-1">
-            
-            
-            <div class="col-12 right-side-subsection child-25 p-3">
-              <a class="page-link btn btn-primary togglebuttons" role="button" href="{% url 'homepage' %}">Homepage</a>
-              <a class="page-link btn btn-primary togglebuttons" role="button" href="{% url 'htl' %}">Housetype Library</a>
-              <a class="page-link btn btn-primary togglebuttons" role="button" href="{% url 'settings' %}">Settings</a>
-            </div>
-
-
-            <div class="col-12 right-side-subsection child-75 p-3">
+<div class="vsize_70">
+  <div id="all_site_objects">
+    {% if site_objects %}
+    
+    <table>
+      <tr>
+        {% for s in site_objects %}
+          {% if 0 < forloop.counter and forloop.counter < 4 %}
+            <td>
               
-              <div class="row gy-1">
-                <div class="col-12 form child-50 p-3">
-                  {% if form %}
-                  <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Add site">
-                  </form>
-                  {% endif %}
+              <div class="card">
+                <div class="row card-header">
+                  <div class="col"></div>
+                  <div class="col"></div>
+                  <div class="col">
+                    <!-- <img src="{% static 'SB_app/monke.jpg' %}" class="card-img" alt="..."> -->
+                    <button class="btn" id="di"><i class="fa fa-trash"></i></button>
+                  </div>
                 </div>
-                <div class="col-12 form-submission-text child-50 p-3">
-                  {% if valid_form %}
-                    <h5>You've submitted a form!</h5>
-                  {% elif name_violation %}
-                    <h5>A site with that name already exists.</h5>
-                  {% elif invalid_form %}
-                    <h5>Invalid Submission</h5>
-                  {% else %}
-                    <h5>Nothing Has Been Submitted</h5>
-                  {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
-    
-            </div>
 
 
-        </div>
-          
-          
-          
-          
-          
-        </div>
-          
-      </div>
-    </div>
-    
-    
-    
-  </body>
+
+
+
+
+            </td>
+          {%endif%}
+        {%endfor%}
+      </tr>
+      <tr>
+        {% for s in site_objects %}
+          {% if 3 < forloop.counter and forloop.counter < 7 %}
+            <td>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{s.name}}</h5>
+                  <p class="card-text">{{s.area}}</p>
+                </div>
+              </div>
+            </td>
+          {%endif%}
+        {%endfor%}
+      </tr>
+      <tr>
+        {% for s in site_objects %}
+          {% if 6 < forloop.counter and forloop.counter < 10 %}
+            <td>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{s.name}}</h5>
+                  <p class="card-text">{{s.area}}</p>
+                </div>
+              </div>
+            </td>
+          {%endif%}
+        {%endfor%}
+      </tr>
+    </table>
+    {% endif %}	
+  </div>
+</div>
+{% endblock %}
