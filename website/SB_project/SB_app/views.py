@@ -9,7 +9,6 @@ settings_template_url = "SB_app/settings.html"
 htl_template_url = "SB_app/housetype_library.html"
 
 
-# Create your views here.
 def index(request):
     return render(request, "SB_app/index.html", context=None)
 
@@ -45,12 +44,26 @@ def homepage(request):
 
         return render(request, homepage_template_url, context)
 
-    return render(request, template_name=homepage_template_url, context=None)
+    return render(request, template_name=homepage_template_url, context=context)
 
 
 def settings(request):
-    return render(request, template_name=settings_template_url, context=None)
+    context = {}
+    if request.method == "POST":
+        pass
+
+    elif request.method == "GET":
+        return render(request, settings_template_url, context)
+
+    return render(request, template_name=settings_template_url, context=context)
 
 
 def htl(request):
-    return render(request, template_name=htl_template_url, context=None)
+    context = {}
+    if request.method == "POST":
+        pass
+
+    elif request.method == "GET":
+        return render(request, htl_template_url, context)
+
+    return render(request, template_name=htl_template_url, context=context)
