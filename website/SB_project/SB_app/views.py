@@ -5,17 +5,12 @@ from .models import Site
 from .forms import SiteForm
 
 homepage_template_url = "SB_app/homepage.html"
-example_template_url = "SB_app/example.html"
 settings_template_url = "SB_app/settings.html"
 htl_template_url = "SB_app/housetype_library.html"
 
 
-# Create your views here.
 def index(request):
     return render(request, "SB_app/index.html", context=None)
-
-def bad_example(request):
-    return render(request, homepage_template_url, context=None)
 
 
 def homepage(request):
@@ -38,18 +33,18 @@ def homepage(request):
                 if unique_name_error in e.messages:
                     context['name_violation'] = True
             
-            return render(request, example_template_url, context)
+            return render(request, homepage_template_url, context)
         else:
             context['invalid_form'] = True
-            return render(request, example_template_url, context)
+            return render(request, homepage_template_url, context)
 
     elif request.method == "GET":
         form = SiteForm()
         context['form'] = form
 
-        return render(request, example_template_url, context)
+        return render(request, homepage_template_url, context)
 
-    return render(request, template_name=example_template_url, context=context)
+    return render(request, template_name=homepage_template_url, context=context)
 
 
 def settings(request):
