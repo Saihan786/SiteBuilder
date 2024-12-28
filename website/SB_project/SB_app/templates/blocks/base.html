@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-
   <body>
-
     <div class="container-fluid whole-page">
       <div class="row">
         <div class="col-9 page-left-side p-3">
@@ -29,42 +27,21 @@
         <div class="col-3 page-right-side p-3">
           <div class="row gy-1">
             <div class="col-12 right-side-subsection child-33 p-3">
-              <a class="page-link button-color btn btn-primary " role="button" href="{% url 'homepage' %}">Homepage</a>
-              <a class="page-link button-color btn btn-primary " role="button" href="{% url 'htl' %}">Housetype Library</a>
-              <a class="page-link button-color btn btn-primary " role="button" href="{% url 'settings' %}">Settings</a>
+              {% include "blocks/button_section.html" %}
             </div>
             <div class="col-12 right-side-subsection child-33 p-3">
               {% block form_section %}
-              {% if form %}
-                <form action="" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {{ form.as_p }}
-                  <input type="submit" value="Add site">
-                </form>
-              {% else %}
-                <h5>No Form Is Available</h5>
-              {% endif %}
+              {% include "blocks/form_section.html" %}
               {% endblock %}
             </div>
             <div class="col-12 right-side-subsection child-33 p-3">
               {% block form_result_section %}
-              {% if valid_form %}
-                <h5>You've Submitted A Form!</h5>
-              {% elif name_violation %}
-                <h5>A Site With That Name Already Exists</h5>
-              {% elif invalid_form %}
-                <h5>Invalid Submission</h5>
-              {% else %}
-                <h5>Nothing Has Been Submitted</h5>
-              {% endif %}
+              {% include "blocks/form_result_section.html" %}
               {% endblock %}
-
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    
-    
   </body>
+</html>

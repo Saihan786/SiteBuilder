@@ -1,0 +1,9 @@
+{% if valid_form %}
+    <h5>You've Submitted A Form!</h5>
+{% elif name_violation %}
+    <h5>A Site With That Name Already Exists</h5>
+{% elif invalid_form %}
+    <h5>Invalid Submission</h5>
+{% else %}
+    <h5>Nothing Has Been Submitted</h5>
+{% endif %}
