@@ -1,11 +1,12 @@
 {% extends "blocks/base.html" %}
 {% load static %}
 {% block title %} <title>Homepage</title> {% endblock %}
+{% block more_style_sheets %} <link rel="stylesheet" href="{% static 'SB_app/homepage_style.css' %}"> {% endblock %}
 {% block page_header %} <h2>My Sites</h2> {% endblock %}
 
 {% block left_side_content %}
-<div>
-  <div class="row">
+<div class="row">
+  <div class="col-12 child-25">
     <button type="button" class="col btn btn-primary toggle-view-button">List</button>
     <button type="button" class="col btn btn-primary toggle-view-button">Map</button>
   </div>

@@ -6,17 +6,18 @@
     {% load static %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'SB_app/style.css' %}">
+    <link rel="stylesheet" href="{% static 'SB_app/base_style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block more_style_sheets %}{% endblock %}
   </head>
 
   <body>
     <div class="container-fluid whole-page">
       <div class="row">
-        <div class="col-9 page-left-side p-3">
-          <div class="row gy-1">
+        <div class="col-9 page-left-side p-5">
+          <div class="row gy-4">
             <div class="col-12 header-section child-25 p-5">
-              {% block page_header %} <h2>My Sites</h2> {% endblock %}
+              {% block page_header %}{% endblock %}
             </div>
             <div class="col-12 left-side-subsection child-75 p-3">
                 {% block left_side_content %}{% endblock %}
@@ -24,8 +25,8 @@
           </div>
         </div>
 
-        <div class="col-3 page-right-side p-3">
-          <div class="row gy-1">
+        <div class="col-3 page-right-side p-5">
+          <div class="row gy-4">
             <div class="col-12 right-side-subsection child-33 p-3">
               {% include "blocks/button_section.html" %}
             </div>
