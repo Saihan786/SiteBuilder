@@ -12,4 +12,5 @@ class SiteTable(tables.Table):
 
     class Meta():
         model = Site
-        template_name = "tables/site_table.html"
+        template_name = "django_tables2/bootstrap5.html"
+        fields = ("name", "area",)
