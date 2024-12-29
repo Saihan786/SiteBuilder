@@ -11,8 +11,6 @@ settings_template_url = "SB_app/settings.html"
 htl_template_url = "SB_app/housetype_library.html"
 
 
-# Create your views here.
-
 def index(request):
     return render(request, "SB_app/index.html", context=None)
 
@@ -48,43 +46,26 @@ def homepage(request):
 
         return render(request, homepage_template_url, context)
 
-    return render(request, template_name=homepage_template_url, context=None)
+    return render(request, template_name=homepage_template_url, context=context)
 
 
 def settings(request):
-    return render(request, template_name=settings_template_url, context=None)
+    context = {}
+    if request.method == "POST":
+        pass
+
+    elif request.method == "GET":
+        return render(request, settings_template_url, context)
+
+    return render(request, template_name=settings_template_url, context=context)
 
 
 def htl(request):
-    # ht_objects = HouseTypes.objects.all()
-    # context = {'ht_objects': ht_objects}
-    
-    # if request.method == "POST":
-    #     form = HouseTypeForm(request.POST)
-    #     context['form'] = form
+    context = {}
+    if request.method == "POST":
+        pass
 
-    #     if form.is_valid():
-    #         name = form.cleaned_data.get('name')
-    #         print(name)
+    elif request.method == "GET":
+        return render(request, htl_template_url, context)
 
-    #         try:
-    #             HouseTypes(name=name).save()
-    #             context['valid_form'] = True
-    #         except Exception as e:
-    #             print(e)
-    #             unique_name_error = 'HouseTypes with this Name already exists.'
-    #             if unique_name_error in e.messages:
-    #                 context['name_violation'] = True
-            
-    #         return render(request, htl_template_url, context)
-    #     else:
-    #         context['invalid_form'] = True
-    #         return render(request, htl_template_url, context)
-
-    # elif request.method == "GET":
-    #     form = HouseTypeForm()
-    #     context['form'] = form
-
-    #     return render(request, htl_template_url, context)
-
-    return render(request, template_name=htl_template_url, context=None)
+    return render(request, template_name=htl_template_url, context=context)
