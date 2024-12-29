@@ -11,20 +11,14 @@ body, html, .row {
     height: 100%;
 
 }
-.left-side-subsection {
+.left-side-subsection, .header-section, .right-side-subsection {
     background-color: rgb(248, 245, 245);
-}
-.header-section {
-    background-color: rgb(248, 245, 245);
-}
-.search-bar {
+    border: dotted;
+    border-color: lightblue;
 }
 
 .page-right-side {
     height: 100%;
-}
-.right-side-subsection {
-    background-color: rgb(248, 245, 245);
 }
 .button-color {
     background-color: lightblue;

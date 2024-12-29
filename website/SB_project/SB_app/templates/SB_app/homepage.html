@@ -1,87 +1,21 @@
-{% extends "blocks/base.html" %}
+{% extends "SB_app/blocks/base.html" %}
 {% load static %}
+{% load render_table from django_tables2 %}
+
+
 {% block title %} <title>Homepage</title> {% endblock %}
+{% block more_style_sheets %} <link rel="stylesheet" href="{% static 'SB_app/homepage_style.css' %}"> {% endblock %}
 {% block page_header %} <h2>My Sites</h2> {% endblock %}
 
 {% block left_side_content %}
-<div>
-  <div class="row">
+<div class="row">
+  <div class="col-12 child-25">
     <button type="button" class="col btn btn-primary toggle-view-button">List</button>
     <button type="button" class="col btn btn-primary toggle-view-button">Map</button>
+    <button type="button" class="col btn btn-primary toggle-view-button">Forecast</button>
   </div>
-</div>
-
-<form>
-  <input class="search_box form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-</form>
-
-
-
-<div class="vsize_70">
-  <div id="all_site_objects">
-    {% if site_objects %}
-    
-    <table>
-      <tr>
-        {% for s in site_objects %}
-          {% if 0 < forloop.counter and forloop.counter < 4 %}
-            <td>
-              
-              <div class="card">
-                <div class="row card-header">
-                  <div class="col"></div>
-                  <div class="col"></div>
-                  <div class="col">
-                    <!-- <img src="{% static 'SB_app/monke.jpg' %}" class="card-img" alt="..."> -->
-                    <button class="btn" id="di"><i class="fa fa-trash"></i></button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-
-
-
-
-
-
-            </td>
-          {%endif%}
-        {%endfor%}
-      </tr>
-      <tr>
-        {% for s in site_objects %}
-          {% if 3 < forloop.counter and forloop.counter < 7 %}
-            <td>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{s.name}}</h5>
-                  <p class="card-text">{{s.area}}</p>
-                </div>
-              </div>
-            </td>
-          {%endif%}
-        {%endfor%}
-      </tr>
-      <tr>
-        {% for s in site_objects %}
-          {% if 6 < forloop.counter and forloop.counter < 10 %}
-            <td>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{s.name}}</h5>
-                  <p class="card-text">{{s.area}}</p>
-                </div>
-              </div>
-            </td>
-          {%endif%}
-        {%endfor%}
-      </tr>
-    </table>
-    {% endif %}	
+  <div class="col-12 child-75">
+    {% render_table site_table %}
   </div>
 </div>
 {% endblock %}

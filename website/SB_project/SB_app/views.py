@@ -3,6 +3,7 @@ from django.shortcuts import HttpResponse
 
 from .models import Site
 from .forms import SiteForm
+from .tables import SiteTable
 
 homepage_template_url = "SB_app/homepage.html"
 settings_template_url = "SB_app/settings.html"
@@ -15,7 +16,11 @@ def index(request):
 
 def homepage(request):
     site_objects = Site.objects.all()
-    context = {'site_objects': site_objects}
+
+    site_table = SiteTable(data=site_objects)
+    query = request.GET.get('query', '')
+
+    context = {'site_objects': site_objects, 'site_table': site_table}
     
     if request.method == "POST":
         form = SiteForm(request.POST)
@@ -33,12 +38,14 @@ def homepage(request):
                 if unique_name_error in e.messages:
                     context['name_violation'] = True
             
+            site_table.paginate(page=request.POST.get("page", 1), per_page=4)
             return render(request, homepage_template_url, context)
-        else:
+        else:  
             context['invalid_form'] = True
             return render(request, homepage_template_url, context)
 
     elif request.method == "GET":
+        site_table.paginate(page=request.GET.get("page", 1), per_page=4)
         form = SiteForm()
         context['form'] = form
 
