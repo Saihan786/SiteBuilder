@@ -13,6 +13,15 @@ def index(request):
     return render(request, "SB_app/index.html", context=None)
 
 
+def table_page(request):
+    template_name = 'SB_app/tables/site_table.html'
+
+    site_objects = Site.objects.all()
+    context = {'site_objects': site_objects}
+    
+    return render(request, template_name, context)
+
+
 def homepage(request):
     site_objects = Site.objects.all()
     context = {'site_objects': site_objects}
