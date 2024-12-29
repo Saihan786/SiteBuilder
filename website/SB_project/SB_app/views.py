@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
 from .models import Site
-from .forms import SiteForm, SearchForm
+from .forms import SiteForm
 from .tables import SiteTable
 
 homepage_template_url = "SB_app/homepage.html"
@@ -18,7 +18,6 @@ def homepage(request):
     site_objects = Site.objects.all()
 
     site_table = SiteTable(data=site_objects)
-    search_form = SearchForm(request.GET)
     query = request.GET.get('query', '')
 
     context = {'site_objects': site_objects, 'site_table': site_table}
