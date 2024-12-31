@@ -10,3 +10,5 @@ Homepage
 
 * Fix bugs, check for bugs
     - NDSS checkbox shouldn't be required
+    
+* Fix "Housetype Library" and "Block Builder" buttons
