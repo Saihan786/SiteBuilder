@@ -62,6 +62,11 @@ class HouseTypes(models.Model):
         decimal_places=4,
         validators=[MinValueValidator(Decimal('0.0000'))],
     )
+    plotting_sq_ft = models.DecimalField(
+        max_digits=10,
+        decimal_places=4,
+        validators=[MinValueValidator(Decimal('0.0000'))],
+    )
 
     def save(self, *args, **kwargs):
         self.full_clean()

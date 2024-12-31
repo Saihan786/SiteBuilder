@@ -89,6 +89,7 @@ def htl(request):
             NDSS_Description = form.cleaned_data.get('NDSS_Description')
             Accessibility = form.cleaned_data.get('Accessibility')
             parking_spaces = form.cleaned_data.get('parking_spaces')
+            plotting_sq_ft = form.cleaned_data.get('plotting_sq_ft')
 
             try:
                 HouseTypes(
@@ -107,6 +108,7 @@ def htl(request):
                     NDSS_Description=NDSS_Description,
                     Accessibility=Accessibility,
                     parking_spaces=parking_spaces,
+                    plotting_sq_ft=plotting_sq_ft,
                 ).save()
                 context['valid_form'] = True
             except Exception as e:

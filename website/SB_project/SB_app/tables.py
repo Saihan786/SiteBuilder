@@ -26,4 +26,4 @@ class HTLTable(tables.Table):
     class Meta():
         model = HouseTypes
         template_name = "django_tables2/bootstrap5.html"
-        fields = ("name", "configuration", "beds", "storeys", "sales_sq_ft", "build_sq_ft", "build_cost", "build_cost_divide_sq_ft", "build_Weeks", "depth", "width", "NDSS", "NDSS_Description", "Accessibility", "parking_spaces",)
+        fields = ("name", "configuration", "beds", "storeys", "sales_sq_ft", "build_sq_ft", "build_cost", "build_cost_divide_sq_ft", "build_Weeks", "depth", "width", "NDSS", "NDSS_Description", "Accessibility", "parking_spaces", "plotting_sq_ft",)

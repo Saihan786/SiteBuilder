@@ -58,3 +58,8 @@ class HouseTypeForm(forms.Form):
         decimal_places=4,
         validators=[MinValueValidator(Decimal('0.0000'))],
     )
+    plotting_sq_ft = forms.DecimalField(
+        max_digits=10,
+        decimal_places=4,
+        validators=[MinValueValidator(Decimal('0.0000'))],
+    )
