@@ -43,7 +43,7 @@ class HouseTypes(models.Model):
         decimal_places=4,
         validators=[MinValueValidator(Decimal('0.0000'))],
     )
-    build_Weeks = models.IntegerField()
+    build_weeks = models.IntegerField()
     depth = models.DecimalField(
         max_digits=10,
         decimal_places=4,
