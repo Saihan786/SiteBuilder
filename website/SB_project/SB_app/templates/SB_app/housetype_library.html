@@ -5,9 +5,6 @@
 {% block title %} <title>Housetype Library Page</title> {% endblock %}
 {% block page_header %} <h2>Housetype Library</h2> {% endblock %}
 
-{% block form_section %}{% endblock %}
-{% block form_result_section %}{% endblock %}
-
 {% block left_side_content %}
 <div class="row">
   <div class="col-12 child-25">
@@ -15,7 +12,9 @@
     <button type="button" class="col btn btn-primary toggle-view-button">Block Builder</button>
   </div>
   <div class="col-12 child-75">
-    {% render_table housetype_table %}
+    <div class="scrollable-table">
+      {% render_table housetype_table %}
+    </div>
   </div>
 </div>
 {% endblock %}

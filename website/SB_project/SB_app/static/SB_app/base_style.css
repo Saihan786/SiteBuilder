@@ -30,13 +30,15 @@ body, html, .row {
 .toggle-view-button {
     width: 33%;
 }
-.page-link {
+.scrollable-table {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
-.form {
+.scrollable-form-section {
+    height: 100%;
+    overflow-y: auto;
 }
-.form-submission-text {
-}
-
 
 
 

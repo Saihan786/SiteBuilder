@@ -15,7 +15,9 @@
     <button type="button" class="col btn btn-primary toggle-view-button">Forecast</button>
   </div>
   <div class="col-12 child-75">
-    {% render_table site_table %}
+    <div class="scrollable-table">
+      {% render_table site_table %}
+    </div>
   </div>
 </div>
 {% endblock %}

@@ -31,9 +31,11 @@
               {% include "SB_app/blocks/url_button_section.html" %}
             </div>
             <div class="col-12 right-side-subsection child-33 p-3">
-              {% block form_section %}
-              {% include "SB_app/blocks/form_section.html" %}
-              {% endblock %}
+              <div class="scrollable-form-section">
+                {% block form_section %}
+                {% include "SB_app/blocks/form_section.html" %}
+                {% endblock %}
+              </div>
             </div>
             <div class="col-12 right-side-subsection child-33 p-3">
               {% block form_result_section %}
