@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
-from .models import Site
+from .models import Site, HouseTypes
 from .forms import SiteForm
-from .tables import SiteTable
+from .tables import SiteTable, HTLTable
 
 homepage_template_url = "SB_app/homepage.html"
 settings_template_url = "SB_app/settings.html"
@@ -16,9 +16,7 @@ def index(request):
 
 def homepage(request):
     site_objects = Site.objects.all()
-
     site_table = SiteTable(data=site_objects)
-    query = request.GET.get('query', '')
 
     context = {'site_objects': site_objects, 'site_table': site_table}
     
@@ -66,7 +64,16 @@ def settings(request):
 
 
 def htl(request):
-    context = {}
+    housetype_objects = HouseTypes.objects.all()
+    housetype_table = HTLTable(data=housetype_objects)
+
+    context = {'housetype_objects': housetype_objects, 'housetype_table': housetype_table}
+
+    # site_table.paginate(page=request.POST.get("page", 1), per_page=4)
+    # site_table.paginate(page=request.GET.get("page", 1), per_page=4)
+
+
+
     if request.method == "POST":
         pass
 
