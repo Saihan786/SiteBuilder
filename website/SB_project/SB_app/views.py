@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from django.shortcuts import HttpResponse
 
-from .models import Site, HouseTypes
+from .models import Site, HouseTypes, Block
 from .forms import SiteForm, HouseTypeForm
 from .tables import SiteTable, HTLTable
 
 homepage_template_url = "SB_app/homepage.html"
 settings_template_url = "SB_app/settings.html"
 htl_template_url = "SB_app/housetype_library.html"
+bb_template_url = "SB_app/block_builder.html"
 
 
 def index(request):
@@ -131,3 +131,30 @@ def htl(request):
         return render(request, htl_template_url, context)
 
     return render(request, template_name=htl_template_url, context=context)
+
+
+def block_builder(request):
+    """
+    The blockbuilder page is all about making blocks and DXF files for the HousePlot software to use.
+    
+    "unit_blocks" is a list of blocks, where each block is only one housetype. Starting from "unit_blocks", blocks can be merged to combine their lists of housetypes.
+    """
+    
+    housetype_objects = HouseTypes.objects.all()
+    for ht_object in housetype_objects:
+        try:
+            Block(name=ht_object.name,).save()
+        except Exception as e:
+            print("EXCEPTION WHEN MAKING BLOCK:", e)
+        
+    unit_blocks = [block.name for block in Block.objects.all()]
+    context = {'unit_blocks': unit_blocks}
+
+    
+
+    # if request.method == "POST":
+    #     return render(request, htl_template_url, context)
+    # elif request.method == "GET":
+    #     return render(request, htl_template_url, context)
+
+    return render(request, template_name=bb_template_url, context=context)

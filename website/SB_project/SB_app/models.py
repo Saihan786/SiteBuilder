@@ -71,3 +71,10 @@ class HouseTypes(models.Model):
     def save(self, *args, **kwargs):
         self.full_clean()
         super().save(*args, **kwargs)
+
+class Block(models.Model):
+    name = models.CharField(max_length=40, unique=True)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
