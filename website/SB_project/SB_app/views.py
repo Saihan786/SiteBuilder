@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Site, HouseTypes, Block
-from .forms import SiteForm, HouseTypeForm
+from .forms import SiteForm, HouseTypeForm, MergeBlockForm
 from .tables import SiteTable, HTLTable
 
 homepage_template_url = "SB_app/homepage.html"
@@ -122,7 +122,6 @@ def htl(request):
             context['invalid_form'] = True
             return render(request, htl_template_url, context)
 
-
     elif request.method == "GET":
         housetype_table.paginate(page=request.GET.get("page", 1), per_page=7)
         form = HouseTypeForm()
@@ -150,11 +149,19 @@ def block_builder(request):
     unit_blocks = [block.name for block in Block.objects.all()]
     context = {'unit_blocks': unit_blocks}
 
-    
+    blocks_as_choice_field = [('block'+str(num+1), block) for num, block in enumerate(unit_blocks)]
 
-    # if request.method == "POST":
-    #     return render(request, htl_template_url, context)
-    # elif request.method == "GET":
-    #     return render(request, htl_template_url, context)
+    if request.method == "POST":
+        form = MergeBlockForm()
+        form.fields['blocks'].choices = blocks_as_choice_field
+
+        context['form'] = form
+        return render(request, bb_template_url, context)
+    elif request.method == "GET":
+        form = MergeBlockForm()
+        form.fields['blocks'].choices = blocks_as_choice_field
+
+        context['form'] = form
+        return render(request, bb_template_url, context)
 
     return render(request, template_name=bb_template_url, context=context)

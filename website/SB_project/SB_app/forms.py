@@ -63,3 +63,12 @@ class HouseTypeForm(forms.Form):
         decimal_places=4,
         validators=[MinValueValidator(Decimal('0.0000'))],
     )
+
+class MergeBlockForm(forms.Form):
+    """
+    Enter two or more blocks to be merged into one block.
+
+    Updates the blockbuilder page accordingly.
+    """
+    
+    blocks = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
