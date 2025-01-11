@@ -158,6 +158,18 @@ def block_builder(request):
             name = form.cleaned_data.get('name')
             blocks = form.cleaned_data.get('blocks')
         
+        merged_block_width = sum([block.width for block in blocks])
+        merged_block_depth = max([block.depth for block in blocks])
+        
+        try:
+            Block(
+                name=name,
+                depth=merged_block_depth,
+                width=merged_block_width,
+            ).save()
+        except Exception as e:
+            print(e)
+        
         context['form'] = form
         return render(request, bb_template_url, context)
     elif request.method == "GET":
