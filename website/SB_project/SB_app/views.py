@@ -150,17 +150,18 @@ def block_builder(request):
     block_table = BlockTable(data=all_blocks)
 
     context = {'block_table': block_table}
-    blocks_as_choice_field = [(block, block.name) for num, block in enumerate(all_blocks)]
 
     if request.method == "POST":
         form = MergeBlockForm(request.POST)
-        form.fields['blocks'].choices = blocks_as_choice_field
-
+        
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            blocks = form.cleaned_data.get('blocks')
+        
         context['form'] = form
         return render(request, bb_template_url, context)
     elif request.method == "GET":
         form = MergeBlockForm()
-        form.fields['blocks'].choices = blocks_as_choice_field
 
         context['form'] = form
         return render(request, bb_template_url, context)

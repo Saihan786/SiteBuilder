@@ -1,6 +1,8 @@
 from django import forms
 from django.core.validators import MinValueValidator
 from decimal import Decimal
+from .models import Block
+from . import fields
 
 
 class SiteForm(forms.Form):
@@ -72,4 +74,4 @@ class MergeBlockForm(forms.Form):
     """
     
     name = forms.CharField(max_length=40)
-    blocks = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
+    blocks = fields.BlockModelChoiceField(queryset=Block.objects.all(), widget=forms.CheckboxSelectMultiple)
