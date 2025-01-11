@@ -71,4 +71,5 @@ class MergeBlockForm(forms.Form):
     Updates the blockbuilder page accordingly.
     """
     
+    name = forms.CharField(max_length=40)
     blocks = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)

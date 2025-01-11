@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .models import Site, HouseTypes, Block
 from .forms import SiteForm, HouseTypeForm, MergeBlockForm
-from .tables import SiteTable, HTLTable
+from .tables import SiteTable, HTLTable, BlockTable
 
 homepage_template_url = "SB_app/homepage.html"
 settings_template_url = "SB_app/settings.html"
@@ -142,17 +142,18 @@ def block_builder(request):
     housetype_objects = HouseTypes.objects.all()
     for ht_object in housetype_objects:
         try:
-            Block(name=ht_object.name,).save()
+            Block(name=ht_object.name, depth=ht_object.depth, width=ht_object.width).save()
         except Exception as e:
             print("EXCEPTION WHEN MAKING BLOCK:", e)
         
-    unit_blocks = [block.name for block in Block.objects.all()]
-    context = {'unit_blocks': unit_blocks}
+    all_blocks = Block.objects.all()
+    block_table = BlockTable(data=all_blocks)
 
-    blocks_as_choice_field = [('block'+str(num+1), block) for num, block in enumerate(unit_blocks)]
+    context = {'block_table': block_table}
+    blocks_as_choice_field = [(block, block.name) for num, block in enumerate(all_blocks)]
 
     if request.method == "POST":
-        form = MergeBlockForm()
+        form = MergeBlockForm(request.POST)
         form.fields['blocks'].choices = blocks_as_choice_field
 
         context['form'] = form

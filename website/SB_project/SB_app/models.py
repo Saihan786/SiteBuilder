@@ -74,6 +74,19 @@ class HouseTypes(models.Model):
 
 class Block(models.Model):
     name = models.CharField(max_length=40, unique=True)
+    depth = models.DecimalField(
+        max_digits=10,
+        decimal_places=4,
+        validators=[MinValueValidator(Decimal('0.0000'))],
+        default=5,
+    )
+    width = models.DecimalField(
+        max_digits=10,
+        decimal_places=4,
+        validators=[MinValueValidator(Decimal('0.0000'))],
+        default=5,
+    )
+    
 
     def save(self, *args, **kwargs):
         self.full_clean()

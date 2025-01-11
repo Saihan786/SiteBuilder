@@ -18,6 +18,8 @@ Blockbuilder (BB) explanation:
         - (CORE) (Middle) As a dev, I can merge blocks to combine their hts
             - Can make a form that has a bunch of checkboxes (each for a block), and submitting sends a POST request
                 - (DONE) form with checkboxes for each block
+                - Define what it means for two blocks to be merged
+                    - Default merging is combining the widths of both blocks
                 - Fix the post request for "views.block_builder" to actually merge the submitted blocks (make a new merged block)
             - The if statement with the POST request would then do the logic for the merge and update everything accordingly
 
@@ -33,7 +35,8 @@ Blockbuilder (BB) explanation:
 
         - (ESSENTIAL) As a dev, I can send a list of all DXF files to the HousePlot API.
             - Blocks are treated as units in HousePlot, so HousePlot won't know about the housetypes themselves.
-        - (ESSENTIAL) As a user, I can build blocks
+        - (ESSENTIAL) As a user, I can merge blocks
+            - As a user, I can rotate selected blocks by 90deg when choosing blocks to merge. This will change how blocks are merged (merge on width vs depth)
         - As a user, I can edit the generated DXF file for a block.
         - Add policy restrictions
 
