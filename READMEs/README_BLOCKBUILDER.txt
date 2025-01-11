@@ -15,15 +15,15 @@ Blockbuilder (BB) explanation:
             - (DONE) Blocks are built using housetypes from HTL (at least one housetype for a block)
             - (DONE) Start with a list of unit_blocks (one for each ht)
 
-        - (CORE) (Middle) As a dev, I can merge blocks to combine their hts
+        - (DONE) (CORE) (Middle) As a dev, I can merge blocks to combine their hts
             - Can make a form that has a bunch of checkboxes (each for a block), and submitting sends a POST request
                 - (DONE) form with checkboxes for each block
-                - Define what it means for two blocks to be merged
+                - (DONE) Define what it means for two blocks to be merged
                     - Default merging is combining the widths of both blocks
-                - Fix the post request for "views.block_builder" to actually merge the submitted blocks (make a new merged block)
-            - The if statement with the POST request would then do the logic for the merge and update everything accordingly
+                - (DONE) Fix the post request for "views.block_builder" to actually merge the submitted blocks (make a new merged block)
+            - (DONE) The if statement with the POST request would then do the logic for the merge and update everything accordingly
 
-        - (CORE) (Middle) As a dev, I can generate a DXF file from a block.
+(CURRENT)- (CORE) (Middle) As a dev, I can generate a DXF file from a block.
             - (SCOPE) Figure out what properties are needed to make a DXF file.
 
         - (CORE) (Last) As a user, I can see blocks on the page:
