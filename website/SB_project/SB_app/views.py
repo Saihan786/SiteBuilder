@@ -144,14 +144,43 @@ def block_builder(request):
         try:
             Block(name=ht_object.name, depth=ht_object.depth, width=ht_object.width).save()
         except Exception as e:
-            print("EXCEPTION WHEN MAKING BLOCK:", e)
+            # print("EXCEPTION WHEN MAKING BLOCK:", e)
+            pass
         
     all_blocks = Block.objects.all()
     block_table = BlockTable(data=all_blocks)
 
     context = {'block_table': block_table}
 
+
+
+
+
+
+    import ezdxf
+    print("\n\n\n")
+
+    doc = ezdxf.new()
+    doc.layers.add(name="HOUSE NEW")
+    
+    msp = doc.modelspace()
+    points = [(0,0), (0, 10), (10, 0), (0,0)]
+    layer = {"layer": "HOUSE NEW"}
+    msp.add_lwpolyline(points, dxfattribs=layer)
+    polyline_entity = msp.query('LWPOLYLINE[layer=="HOUSE NEW"]')
+    # doc.saveas("triangle.dxf")
+
+
+    points = [(0, 0), (3, 0), (6, 3), (6, 6)]
+    # msp.add_lwpolyline(points)
+    for ent in msp.query('LWPOLYLINE'):
+        print(ent.dxf) # This is a DXF namespace
+
+
+    
+
     if request.method == "POST":
+        
         form = MergeBlockForm(request.POST)
         
         if form.is_valid():
@@ -174,7 +203,6 @@ def block_builder(request):
         return render(request, bb_template_url, context)
     elif request.method == "GET":
         form = MergeBlockForm()
-
         context['form'] = form
         return render(request, bb_template_url, context)
 
